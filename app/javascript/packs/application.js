@@ -4,14 +4,23 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
+// import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import HelloMessage from '../components/App';
 
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()
 // Support component names relative to this directory:
 var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+document.addEventListener('DOMContentLoaded', () => {
+  root.render(<HelloMessage name="World" />);
+});

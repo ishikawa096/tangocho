@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root 'home#index'
   resources :memos
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    resources :cards, only: %i[index show create destroy update]
+  end
 end
