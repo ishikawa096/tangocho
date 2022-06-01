@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_05_23_135710) do
 
-  create_table "memos", charset: "utf8mb4", force: :cascade do |t|
+  create_table "memos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
