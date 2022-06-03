@@ -28,7 +28,7 @@ jobs:
   rubocop:
     working_directory: ~/myapp
     docker:
-      - image: circleci/ruby:2.7.6
+      - image: circleci/ruby
     steps:
       - checkout
       - restore_cache:
