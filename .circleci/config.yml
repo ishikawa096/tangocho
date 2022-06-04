@@ -3,7 +3,7 @@ jobs:
   rspec:
     working_directory: ~/myapp
     docker:
-      - image: circleci/ruby
+      - image: circleci/ruby:3.0.3-buster
     steps:
       - checkout
       - setup_remote_docker
@@ -28,7 +28,7 @@ jobs:
   rubocop:
     working_directory: ~/myapp
     docker:
-      - image: circleci/ruby
+      - image: circleci/ruby:3.0.3-buster
     steps:
       - checkout
       - restore_cache:
@@ -77,12 +77,11 @@ jobs:
       - run:
           name: Run post-deploy tasks
           command: |
-            heroku config:set AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION AWS_BUCKET=$AWS_BUCKET
             heroku run bin/rails db:migrate
             heroku run bin/rails runner db/seeds.rb
 
 orbs:
-  build-tools: circleci/build-tools@2.6.3
+  build-tools: circleci/build-tools@3.0.0
   jq: circleci/jq@1.9.1
 workflows:
   version: 2.1

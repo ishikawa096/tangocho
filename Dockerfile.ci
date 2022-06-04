@@ -1,6 +1,5 @@
-FROM ruby:2.7.6-alpine3.15
+FROM ruby:3.0.3-alpine3.15
 
-WORKDIR /myapp
 RUN apk add --no-cache -t .build-dependencies \
   alpine-sdk \
   build-base \
@@ -11,10 +10,11 @@ RUN apk add --no-cache -t .build-dependencies \
   nodejs \
   tzdata \
   yarn \
-  && sudo gem install bundler:2.0.2 \
+  && gem install bundler:2.0.2 \
   && apk add --no-cache libc6-compat \
   && ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2 \
   && apk del --purge .build-dependencies
 
+WORKDIR /myapp
 COPY . /myapp
 RUN bundle install
