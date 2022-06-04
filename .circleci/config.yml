@@ -20,9 +20,12 @@ jobs:
       - run:
           name: Setup database
           command: |
-            docker-compose exec web rails db:create
-            docker-compose exec web rails db:migrate
-            docker-compose exec web rails runner db/seeds.rb
+            docker-compose exec web bash -c 'yes n | bundle exec rails db:create | bundle exec rails db:migrate | bundle exec rails runner db/seeds.rb
+      # - run:
+      #     name: Exec webpack
+      #     command: |
+      #       docker-compose exec web bin/rails webpacker:compile
+      #       docker-compose exec web bundle exec bin/webpack
       - run:
           name: Run rspec
           command: docker-compose exec web rspec
