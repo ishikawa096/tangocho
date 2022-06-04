@@ -1,8 +1,8 @@
-FROM ruby:3.0.3-alpine3.15
+FROM ruby:3.0.3-alpine3.13
 
 WORKDIR /myapp
 COPY Gemfile* /myapp/
-RUN apk add --no-cache -t .build-dependencies \
+RUN apk update && apk add --no-cache -t .build-dependencies \
   alpine-sdk \
   build-base \
   mysql-client \
@@ -12,11 +12,12 @@ RUN apk add --no-cache -t .build-dependencies \
   nodejs \
   tzdata \
   yarn \
-  && gem install bundler:2.0.2 \
+  && gem install bundler \
   && bundle install \
   && apk add --no-cache libc6-compat \
   && ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2 \
-  && apk del --purge .build-dependencies
+  && apk del --purge .build-dependencies \
+  && rm -rf /usr/local/bundle/cache/* /usr/local/share/.cache/* /var/cache/* /tmp/*
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh

@@ -3,7 +3,7 @@ jobs:
   rspec:
     working_directory: ~/myapp
     docker:
-      - image: circleci/ruby:3.0.3-buster
+      - image: cimg/ruby:3.0.3
     steps:
       - checkout
       - setup_remote_docker
@@ -20,7 +20,9 @@ jobs:
       - run:
           name: Setup database
           command: |
-            docker-compose exec web bash -c 'yes n | bundle exec rails g --migrate --seed --auto_accept'
+            docker-compose exec web rails db:create
+            docker-compose exec web rails db:migrate
+            docker-compose exec web rails runner db/seeds.rb
       - run:
           name: Run rspec
           command: docker-compose exec web rspec
@@ -28,7 +30,7 @@ jobs:
   rubocop:
     working_directory: ~/myapp
     docker:
-      - image: circleci/ruby:3.0.3-buster
+      - image: cimg/ruby:3.0.3
     steps:
       - checkout
       - restore_cache:
