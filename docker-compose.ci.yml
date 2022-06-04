@@ -27,9 +27,16 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_HOST: db
       REDIS_URL: "redis://redis:6379"
+      CHROME_DRIVER_URL: "http://chrome:4444"
     depends_on:
       - db
       - redis
+      - chrome
     networks:
       - default
     command: bundle exec rails server -b 0.0.0.0
+  chrome:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - '4444:4444'
+    shm_size: 128m
