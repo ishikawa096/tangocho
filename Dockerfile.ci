@@ -19,14 +19,13 @@ RUN apk update && apk add --no-cache -t .build-dependencies \
   && apk update && gem install bundler \
   && apk add --no-cache libc6-compat \
   && ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2
-  # && apk del --purge .build-dependencies
 
 RUN mkdir /myapp
 WORKDIR /myapp
 COPY . /myapp
 RUN bundle install \
-  && rm -rf /usr/local/bundle/cache/* /usr/local/share/.cache/* /var/cache/* /tmp/* \
-  && apk del libxml2-dev curl-dev make gcc libc-dev g++ \
-  && touch .yarn-cache && yarn config set cache-folder .yarn-cache \
+  && bundle exec bin/rails assets:precompile \
   && bundle exec bin/rails webpacker:install \
+  && bundle exec bin/rails webpacker:install:react \
+  && bundle exec bin/rails webpacker:install:typescript \
   && bundle exec bin/rails webpacker:compile

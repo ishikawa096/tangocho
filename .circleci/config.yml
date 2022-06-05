@@ -6,7 +6,8 @@ jobs:
       - image: cimg/ruby:3.0.3
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+          version: 20.10.14
       - run:
           name: Setup environment variable
           command: |
@@ -20,11 +21,15 @@ jobs:
       - run:
           name: Setup database
           command: |
-            docker-compose exec web bash -c 'yes n | bundle exec rails db:create | bundle exec rails db:migrate | bundle exec rails runner db/seeds.rb
+            docker-compose exec web bin/rails db:create
+            docker-compose exec web bin/rails db:migrate
+            docker-compose exec web bin/rails runner db/seeds.rb
       # - run:
       #     name: Exec webpack
       #     command: |
-      #       docker-compose exec web bin/rails webpacker:compile
+      #       docker-compose exec web rails assets:precompile
+      #       docker-compose exec web rails webpacker:install -f
+      #       docker-compose exec web rails webpacker:compile
       #       docker-compose exec web bundle exec bin/webpack
       - run:
           name: Run rspec
