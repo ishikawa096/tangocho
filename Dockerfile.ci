@@ -20,9 +20,9 @@ RUN apk update && apk add --no-cache -t .build-dependencies \
   && apk add --no-cache libc6-compat \
   && ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2
 
-RUN mkdir /myapp
-WORKDIR /myapp
-COPY . /myapp
+RUN mkdir /tangocho
+WORKDIR /tangocho
+COPY . /tangocho
 RUN bundle install \
   && bundle exec bin/rails assets:precompile \
   && bundle exec bin/rails webpacker:install \

@@ -24,12 +24,12 @@ services:
       CHROME_DRIVER_URL: "http://chrome:4444"
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/myapp
-      - /myapp/log
-      - /myapp/tmp
-      - vendor_bundle:/myapp/vendor/bundle
-      - node_modules:/myapp/node_modules
-      - storage:/myapp/storage
+      - .:/tangocho
+      - /tangocho/log
+      - /tangocho/tmp
+      - vendor_bundle:/tangocho/vendor/bundle
+      - node_modules:/tangocho/node_modules
+      - storage:/tangocho/storage
     ports:
       - "3000:3000"
     depends_on:

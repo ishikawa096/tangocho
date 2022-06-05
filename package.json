@@ -1,5 +1,5 @@
 {
-  "name": "myapp",
+  "name": "tangocho",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.17.12",

@@ -1,7 +1,7 @@
 FROM ruby:3.0.3-alpine3.13
 
-WORKDIR /myapp
-COPY Gemfile* /myapp/
+WORKDIR /tangocho
+COPY Gemfile* /tangocho/
 RUN apk update && apk add --no-cache -t .build-dependencies \
   alpine-sdk \
   build-base \
