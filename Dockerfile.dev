@@ -8,6 +8,12 @@ RUN apk update && apk add --no-cache -t .build-dependencies \
   mysql-client \
   && apk add --no-cache \
   bash \
+  libxml2-dev \
+  libc-dev \
+  curl-dev \
+  make \
+  gcc \
+  g++ \
   mysql-dev \
   nodejs \
   tzdata \
