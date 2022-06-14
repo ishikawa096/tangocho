@@ -14,7 +14,7 @@ body {
 }
 
 header {
-  background: #f57011;
+  background: #88ccff;
   height: 60px;
 }
 
@@ -32,14 +32,14 @@ header h1:hover {
   text-decoration: underline;
 }
 
-.grid {
+/* .grid {
   display: grid;
   grid-gap: 50px;
   grid-template-columns: minmax(250px, 20%) auto;
   margin: 25px auto;
   width: 90%;
   height: calc(100vh - 145px);
-}
+} */
 
 .cardList {
   background: #f6f6f6;
@@ -83,7 +83,17 @@ header h1:hover {
 }
 
 .cardForm {
+  max-width: 80%;
   margin-top: 15px;
+}
+
+.CardFormInner {
+  display: flex;
+  flex-direction: column;
+}
+
+.CardFormItem {
+  display: block;
 }
 
 label > strong {
@@ -96,24 +106,28 @@ label > strong {
 }
 
 input, textarea {
+  display: block;
   padding: 2px 0 3px 3px;
-  width: 400px;
+  max-width: 100%;
+  height: 200px;
   margin-bottom: 15px;
   box-sizing: border-box;
+  font-size: 4rem;
 }
 
-input[type="checkbox"] {
+/* input[type="checkbox"] {
   width: 13px;
-}
+} */
 
 button[type="submit"] {
-  background: #f57011;
-  border: none;
+  background: #fff;
+  border: solid 1px #88ccff;
+  border-radius: 10%;
+  width: 500px;
   padding: 5px 25px 8px;
   font-weight: 500;
-  color: white;
+  color: #88ccff;
   cursor: pointer;
-  margin: 10px 0 0 106px;
 }
 
 .errors {
@@ -172,6 +186,7 @@ h2 a:hover {
   font-size: 15px;
   margin: 3px 12px 0 12px;
   text-decoration: none;
+  width: 100%;
 }
 
 .form-actions a:hover {

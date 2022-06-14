@@ -4,7 +4,7 @@ RSpec.describe "cards", type: :request do
   let(:card) { create(:card) }
 
   before do
-    get api_cards_path
+    get api_v1_cards_path
   end
 
   it "レスポンスに成功する" do

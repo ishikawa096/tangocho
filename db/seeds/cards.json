@@ -1,31 +1,37 @@
 [
   {
-    "word": "Symposium",
+    "word": "hopscotch",
+    "answer": "石蹴り遊び",
     "status": "none",
     "book_id": 1
   },
   {
-    "word": "dehydrated",
+    "word": "bespeak",
+    "answer": "あつらえる",
     "status": "none",
     "book_id": 1
   },
   {
-    "word": "silhouette",
+    "word": "tchotchke",
+    "answer": "安ぴか",
     "status": "none",
     "book_id": 1
   },
   {
-    "word": "Authenticity",
+    "word": "cochlear",
+    "answer": "（内耳の）蝸牛",
     "status": "none",
     "book_id": 1
   },
   {
     "word": "omnipresent",
+    "answer": "偏在する",
     "status": "none",
     "book_id": 1
   },
   {
-    "word": "designate",
+    "word": "buoyancy",
+    "answer": "浮力",
     "status": "none",
     "book_id": 1
   }

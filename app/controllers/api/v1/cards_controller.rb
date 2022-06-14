@@ -1,4 +1,4 @@
-class Api::CardsController < ApplicationController
+class Api::V1::CardsController < ApplicationController
   before_action :set_card, only: %i(show update destroy)
 
   def index
@@ -42,6 +42,7 @@ class Api::CardsController < ApplicationController
     params.require(:card).permit(
       :id,
       :word,
+      :answer,
       :status,
       :book_id,
       :created_at,
