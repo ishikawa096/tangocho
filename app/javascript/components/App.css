@@ -8,7 +8,7 @@ ul, ol {
 }
 
 body {
-  font-family: Roboto;
+  font-family: 'Montserrat', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'M PLUS 1p', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic', sans-serif;
   font-size: 16px;
   line-height: 28px;
 }
@@ -20,7 +20,7 @@ header {
 
 header h1, header h1 a{
   display: inline-block;
-  font-family: "Maven Pro";
+  font-family: 'Yusei Magic', sans-serif;
   font-size: 28px;
   font-weight: 500;
   color: white;
@@ -106,6 +106,7 @@ label > strong {
 }
 
 input, textarea {
+  font-family: 'Montserrat', 'M PLUS 1p', sans-serif;
   display: block;
   padding: 2px 0 3px 3px;
   max-width: 100%;
@@ -120,6 +121,7 @@ input, textarea {
 } */
 
 button[type="submit"] {
+  font-family: 'Montserrat', 'M PLUS 1p', sans-serif;
   background: #fff;
   border: solid 1px #88ccff;
   border-radius: 10%;
