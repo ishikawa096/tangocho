@@ -1,18 +1,16 @@
 import { error } from './notifications';
 
-export const isEmptyObject = (obj: {} | { any: string; }) => Object.keys(obj).length === 0;
+export const isEmptyObject = (obj: {} | { any: string }) => Object.keys(obj).length === 0;
 
 export const validateCard = (card: { word: string, answer: string }) => {
-  const errors: any = {};
+  const errors: { word?: string, answer?: string } = {};
   if (card.word === '') {
-    errors.word = 'wordを入力してください';
+    errors.word = 'wordを入力してください。';
   }
   if (card.answer === '') {
-    errors.answer = 'answerを入力してください';
+    errors.answer = 'answerを入力してください。';
   }
-  if (!Object.values(errors)) {
-    return errors;
-  } else {
+  if (Object.values(errors)) {
     return errors;
   }
 };
