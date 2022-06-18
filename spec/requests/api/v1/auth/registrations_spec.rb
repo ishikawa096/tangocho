@@ -6,7 +6,7 @@ RSpec.describe "Api::V1::Auth::Registrations", type: :request do
       name: 'username',
       email: 'test@example.com',
       password: 'password',
-      password_confirmation: 'password'
+      password_confirmation: 'password',
     }
     expect(response).to have_http_status(200)
   end
