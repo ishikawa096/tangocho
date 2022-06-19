@@ -15,5 +15,6 @@ module Tangocho
     config.active_record.default_timezone = :local
     config.generators.test_framework = :rspec
     config.react.server_renderer_extensions = ["jsx", "js", "tsx", "ts"]
+    config.i18n.default_locale = :ja
   end
 end
