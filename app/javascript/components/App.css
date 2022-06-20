@@ -8,7 +8,7 @@ ul, ol {
 }
 
 body {
-  font-family: 'Montserrat', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'M PLUS 1p', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic', sans-serif;
+  font-family: 'Roboto', '"Noto Sans JP"', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic', sans-serif;
   font-size: 16px;
   line-height: 28px;
 }
@@ -42,7 +42,7 @@ header h1:hover {
 } */
 
 .cardList {
-  background: #f6f6f6;
+  /* background: #f6f6f6; */
   padding: 16px;
 }
 
@@ -105,8 +105,8 @@ label > strong {
   font-size: 15px;
 }
 
-input, textarea {
-  font-family: 'Montserrat', 'M PLUS 1p', sans-serif;
+.cardInput {
+  font-family: 'Roboto', '"Noto Sans JP"', sans-serif;
   display: block;
   padding: 2px 0 3px 3px;
   max-width: 100%;
@@ -120,19 +120,19 @@ input, textarea {
   width: 13px;
 } */
 
-button[type="submit"] {
-  font-family: 'Montserrat', 'M PLUS 1p', sans-serif;
+/* button[type="submit"] {
+  font-family: 'Roboto', '"Noto Sans JP"', sans-serif;
   background: #fff;
   border: solid 1px #88ccff;
-  border-radius: 10%;
+  border-radius: 5px;
   width: 500px;
   padding: 5px 25px 8px;
   font-weight: 500;
   color: #88ccff;
   cursor: pointer;
-}
+} */
 
-.errors {
+/* .errors {
   border: 1px solid red;
   border-radius: 5px;
   margin: 20px 0 35px 0;
@@ -153,9 +153,9 @@ button[type="submit"] {
   border-top: solid 1px pink;
   font-size: 12px;
   font-weight: 0.9;
-}
+} */
 
-button.delete {
+/* button.delete {
   background: none !important;
   border: none;
   padding: 0 !important;
@@ -169,7 +169,7 @@ button.delete {
 
 button.delete:hover {
   text-decoration: underline;
-}
+} */
 
 h2 a {
   color: #236fff;

@@ -1,9 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import Input from '@mui/material/Input';
+import { styled } from '@mui/material/styles';
 import { isEmptyObject, validateCard } from '../helpers/helpers';
 import { error } from '../helpers/notifications';
 import CardNotFound from './CardNotFound';
 import { CardType } from './Types';
+
+const InputField = styled(Input)({
+  fontSize: 40,
+  width: '100%',
+});
 
 const CardForm = ({ cards, onSave }) => {
   const { id } = useParams();
@@ -35,8 +43,8 @@ const CardForm = ({ cards, onSave }) => {
 
   const handleSubmit = (c: { preventDefault: () => void }) => {
     c.preventDefault();
-    if (!isEmptyObject(validateCard(card))) {
-      const errors = validateCard(card);
+    const errors = validateCard(card);
+    if (!isEmptyObject(errors)) {
       renderErrors(errors);
     } else {
       onSave(card);
@@ -53,19 +61,19 @@ const CardForm = ({ cards, onSave }) => {
           <div className='CardFormItem'>
             <label htmlFor='word'>
               <strong>Word:</strong>
-              <input type='text' id='word' name='word' onChange={handleInputChange} value={card.word} placeholder='単語を入力してEnter' />
+              <InputField type='text' id='word' name='word' className='cardInput' onChange={handleInputChange} value={card.word} placeholder='単語を入力してEnterで保存' />
             </label>
           </div>
           <div className='CardFormItem'>
             <label htmlFor='answer'>
               <strong>Answer:</strong>
-              <input type='text' id='answer' name='answer' onChange={handleInputChange} value={card.answer} />
+              <InputField type='text' id='answer' name='answer' className='cardInput' onChange={handleInputChange} value={card.answer} />
             </label>
           </div>
           <input type='hidden' id='book_id' name='book_id' />
         </div>
         <div className='form-actions'>
-          <button type='submit'>Enter</button>
+          <Button type='submit' variant="contained" color="primary">Enter</Button>
         </div>
       </form>
     </section>

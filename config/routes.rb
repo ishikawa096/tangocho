@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # devise_for :users
   root 'home#index'
+  get 'sign_in', to: 'home#index'
   get 'cards', to: 'home#index'
   get 'cards/new', to: 'home#index'
   get 'cards/:id', to: 'home#index'

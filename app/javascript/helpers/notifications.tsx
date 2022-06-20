@@ -2,7 +2,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast, Flip } from 'react-toastify';
 
 const defaults = {
-  position: 'top-right',
+  position: 'bottom-center',
   autoClose: 5000,
   hideProgressBar: true,
   closeOnClick: true,

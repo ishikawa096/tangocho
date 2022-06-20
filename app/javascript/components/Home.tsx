@@ -97,7 +97,6 @@ const Home = () => {
 
   return (
     <>
-      <Header />
       <div className="grid">
         {isLoading ? (<p>Loading...</p>) : (
           <>
