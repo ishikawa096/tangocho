@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { injectStyle } from "react-toastify/dist/inject-style" ;
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { Typography } from '@mui/material'
@@ -11,6 +12,7 @@ import './App.css';
 import SignInForm from './SignInForm';
 
 const App = () => {
+  injectStyle();
   const isDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
   const theme = createTheme({
     palette: {
